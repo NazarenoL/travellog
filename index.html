@@ -45,11 +45,9 @@
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css' rel='stylesheet' />
 
-  <script src="js/vendor/modernizer.js"></script>
-
   <!-- All our css -->
-  <link href="stylesheets/mapglyphs.css" rel="stylesheet">
-  <link href="stylesheets/screen.css" rel="stylesheet">
+  <link href="/dist/css/mapglyphs.css" rel="stylesheet">
+  <link href="/dist/css/screen.css" rel="stylesheet">
 
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -121,8 +119,8 @@
         </div><!-- end grid -->
 
       </section>
-      
-      
+
+
       <!-- This is the end! -->
       <div class="section end">
         <h4 class="h2">The end</h4>
@@ -131,95 +129,13 @@
           <a title="Travel Log GitHub Repo" href="https://github.com/laurenhallden/travellog">Grab the code</a>
         </p>
       </div>
-      
+
     </div> <!-- end writing -->
 
   </div> <!-- end container -->
 
   <!-- JS -->
-  <script src="js/vendor/jquery.js"></script>
-
-  <!-- Here's where we give the map all of its settings and locations -->
-  <script>
-    mapboxgl.accessToken = 'your_token'; // Add your mapbox API key here
-
-    var map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/outdoors-v9',
-      center: [-75.401710, 41.221494], // your starting coordiantes
-      zoom: 12.5,
-      bearing: 35,
-      pitch: 40,
-      duration: 8000
-    });
-
-    map.scrollZoom.disable();
-
-    var chapters = {
-
-      // give each location the same name as its section id, and set its coordinates here
-      'location-one': {
-        center: [-75.401710, 41.221494],
-          zoom: 12.5,
-          bearing: 35,
-          pitch: 40,
-          duration: 8000
-      },
-      'location-two': {
-          center: [-75.748217, 40.740883],
-          zoom: 11,
-          bearing: 55,
-          pitch: 70
-      }
-  };
-
-  // Every time the page scrolls, we'll check which section is on the screen
-  $('#writing').scroll(function() {
-    var arrPlaces = $("section");
-
-    arrPlaces.each(function() {
-      var offset = $(this).offset();
-      var bottom = offset.top + $(this).outerHeight();
-      var windowHeight = $(window).height();
-      var theId = $(this).attr('id');
-      if ($(window).width() > 767) {
-        console.log(theId);
-        if (offset.top < 200 && bottom > 200) {
-          setActiveChapter(theId);
-        }
-      }
-      else if (offset.top < windowHeight) {
-        // this is for mobile; we trigger the map move as soon as a section enters the screen
-        setActiveChapter(theId);
-      }
-      else {
-        $(this).removeClass('active');
-      }
-    });
-  });
-
-  var activeChapterName = 'intro';
-
-  function setActiveChapter(theId) {
-    $('#' + theId).addClass('active');
-    if (theId === activeChapterName) return;
-    map.flyTo(chapters[theId]);
-    activeChapterName = theId;
-  };
-
-  // Open and close the optional navigation
-
-  $('.toggle').click(function() {
-    $(this).toggleClass('open');
-    $('.menu').toggleClass('open');
-  });
-
-  $('.menu .nav-icon').click(function() {
-    $('.toggle').removeClass('open');
-    $('.menu').removeClass('open');
-  });
-
-</script>
+  <script src="/dist/js/main.js"></script>
 
 </body>
 </html>

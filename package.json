@@ -1,0 +1,29 @@
+{
+  "name": "travellog",
+  "version": "0.0.1",
+  "description": "An interactive map of everywhere you've traveled, with room for image galleries, descriptions and dates. You can see an example (of a very long, complicated travel log) at https://laurenhallden.com/2018travellog/",
+  "scripts": {
+    "start:dev": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NazarenoL/travellog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NazarenoL/travellog/issues"
+  },
+  "homepage": "https://github.com/NazarenoL/travellog#readme",
+  "devDependencies": {
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}
