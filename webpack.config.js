@@ -10,6 +10,6 @@ module.exports = {
     contentBase: __dirname,
     compress: true,
     port: 9000,
-    publicPath: path.resolve(__dirname, 'dist')
+    publicPath: '/dist/'
   }
 };
