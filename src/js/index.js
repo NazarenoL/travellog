@@ -28,7 +28,6 @@ $("#writing").scroll(function() {
     var windowHeight = $(window).height();
     var theId = $(this).attr("id");
     if ($(window).width() > 767) {
-      console.log(theId);
       if (offset.top < 200 && bottom > 200) {
         setActiveChapter(theId);
       }
@@ -49,15 +48,3 @@ function setActiveChapter(theId) {
   map.flyTo(chapters[theId]);
   activeChapterName = theId;
 }
-
-// Open and close the optional navigation
-
-$(".toggle").click(function() {
-  $(this).toggleClass("open");
-  $(".menu").toggleClass("open");
-});
-
-$(".menu .nav-icon").click(function() {
-  $(".toggle").removeClass("open");
-  $(".menu").removeClass("open");
-});
