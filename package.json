@@ -35,6 +35,7 @@
     "mapbox-gl": "^1.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-map-gl": "^5.2.3"
+    "react-map-gl": "^5.2.3",
+    "react-visibility-sensor": "^5.1.1"
   }
 }

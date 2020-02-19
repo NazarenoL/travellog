@@ -17,34 +17,3 @@ var chapters = {
     pitch: 70
   }
 };
-
-// Every time the page scrolls, we'll check which section is on the screen
-$("#writing").scroll(function() {
-  var arrPlaces = $("section");
-
-  arrPlaces.each(function() {
-    var offset = $(this).offset();
-    var bottom = offset.top + $(this).outerHeight();
-    var windowHeight = $(window).height();
-    var theId = $(this).attr("id");
-    if ($(window).width() > 767) {
-      if (offset.top < 200 && bottom > 200) {
-        setActiveChapter(theId);
-      }
-    } else if (offset.top < windowHeight) {
-      // this is for mobile; we trigger the map move as soon as a section enters the screen
-      setActiveChapter(theId);
-    } else {
-      $(this).removeClass("active");
-    }
-  });
-});
-
-var activeChapterName = "intro";
-
-function setActiveChapter(theId) {
-  $("#" + theId).addClass("active");
-  if (theId === activeChapterName) return;
-  map.flyTo(chapters[theId]);
-  activeChapterName = theId;
-}
