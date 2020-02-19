@@ -1,19 +1,5 @@
 var $ = require("jquery");
-const mapboxgl = require('mapbox-gl');
-
-mapboxgl.accessToken = 'pk.eyJ1IjoibmF6YXJlbm9sIiwiYSI6ImNrNnBzaTA2YTAyanUzaHFscXViNGt1YmYifQ.TqHgHhcysFdfaH0QvP6MGg';
-
-var map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/nazarenol/ck6puwuuj1hi41io6ocfo6mtf',
-  center: [-75.401710, 41.221494], // your starting coordiantes
-  zoom: 12.5,
-  bearing: 35,
-  pitch: 40,
-  duration: 8000
-});
-
-map.scrollZoom.disable();
+import App from "./components/app";
 
 var chapters = {
   // give each location the same name as its section id, and set its coordinates here
