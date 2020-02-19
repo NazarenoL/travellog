@@ -1,16 +1,17 @@
-const path = require('path');
+const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/js/index.js',
+  entry: "./src/js/index.js",
+  devtool: "source-map",
   output: {
-    filename: 'js/main.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "js/main.js",
+    path: path.resolve(__dirname, "dist")
   },
   devServer: {
-    contentBase: './dist/',
+    contentBase: "./dist/",
     compress: true,
-    port: 9000,
+    port: 9000
   },
   module: {
     rules: [
@@ -18,15 +19,13 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: "babel-loader"
         }
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader',
-        ],
-      },
+        use: ["file-loader"]
+      }
     ]
   },
   plugins: [
