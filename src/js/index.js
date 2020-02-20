@@ -1,5 +1,6 @@
 var $ = require("jquery");
 import App from "./components/app";
+import '../sass/screen.scss';
 
 var chapters = {
   // give each location the same name as its section id, and set its coordinates here

@@ -4,15 +4,17 @@ import ReactDOM from "react-dom";
 import Footer from "./footer";
 import Intro from "./intro";
 import Location from "./location";
-import Map from "./map";
+import Map, { Viewport } from "./map";
 import Navigation from "./navigation";
 import Region from "./region";
 
 class App extends Component {
   render() {
+    let defaultViewport = new Viewport(41.221494, -75.40171, 12.5, 35, 40);
+
     return (
       <>
-        <Map />
+        <div id="map"><Map viewport={defaultViewport} /></div>
         <div id="writing">
           <Navigation />
 
