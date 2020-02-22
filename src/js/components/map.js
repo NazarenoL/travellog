@@ -1,41 +1,46 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { easeCubic } from "d3-ease";
+
 import MapGL, { FlyToInterpolator } from "react-map-gl";
+
+import { flyTo } from "../actions";
 
 const MAPBOX_TOKEN =
   "pk.eyJ1IjoibmF6YXJlbm9sIiwiYSI6ImNrNnBzaTA2YTAyanUzaHFscXViNGt1YmYifQ.TqHgHhcysFdfaH0QvP6MGg";
 
 class Map extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { viewport: this.props.viewport };
-
-    this.flyTo = this.flyTo.bind(this);
-  }
-
-  flyTo(viewport) {
-    this.setState(state => ({ viewport: viewport }));
-  }
+  _onViewportChange = viewport => {
+    this.props.flyTo(viewport);
+  };
 
   render() {
     return (
       <MapGL
+        mapboxApiAccessToken={MAPBOX_TOKEN}
+        onViewportChange={this._onViewportChange}
+        mapStyle="mapbox://styles/nazarenol/ck6puwuuj1hi41io6ocfo6mtf?optimize=true"
+        transitionDuration={1500}
+        transitionInterpolator={new FlyToInterpolator()}
+        transitionEasing={easeCubic}
+        {...this.props.viewport}
         width="100%"
         height="100%"
-        mapStyle="mapbox://styles/nazarenol/ck6puwuuj1hi41io6ocfo6mtf"
-        latitude={this.state.viewport.latitude}
-        longitude={this.state.viewport.longitude}
-        zoom={this.state.viewport.zoom}
-        bearing={this.state.viewport.bearing}
-        pitch={this.state.viewport.pitch}
-        transitionDuration={1000}
-        transitionInterpolator={new FlyToInterpolator()}
-        mapboxApiAccessToken={MAPBOX_TOKEN}
       />
     );
   }
 }
 
-export default Map;
+const mapStateToProps = state => ({
+  viewport: state.viewport
+});
+
+export default connect(
+  mapStateToProps,
+  { flyTo }
+)(Map);
+
+// export default Map;
 export class Viewport {
   constructor(latitude, longitude, zoom, bearing, pitch) {
     this.latitude = latitude;

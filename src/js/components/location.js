@@ -1,30 +1,32 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Image1x1 from "../../images/image-1x1.jpg";
 import Image2x1 from "../../images/image-2x1.jpg";
 import Image3x1 from "../../images/image-3x1.jpg";
 import VisibilitySensor from "react-visibility-sensor";
 
+import { flyTo } from "../actions";
+
 class Location extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isVisible: false };
+  state = { isVisible: false };
 
-    this.visibilityChange = this.visibilityChange.bind(this);
-  }
-
-  visibilityChange(isVisible) {
+  visibilityChange = isVisible => {
     this.setState(state => ({
       isVisible: isVisible
     }));
-  }
+
+    if (isVisible) {
+      this.props.flyTo(this.props.viewport);
+    }
+  };
 
   render() {
     return (
       <VisibilitySensor
         onChange={this.visibilityChange}
         partialVisibility={true}
-        minTopValue={250}
+        minTopValue={100}
       >
         <section className={this.state.isVisible ? "active" : ""}>
           <h3>{this.props.name}</h3>
@@ -57,4 +59,7 @@ class Location extends Component {
   }
 }
 
-export default Location;
+export default connect(
+  null,
+  { flyTo }
+)(Location);
