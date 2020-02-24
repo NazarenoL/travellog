@@ -18,11 +18,5 @@ function travelApp(state = initialState, action) {
 }
 
 let store = createStore(travelApp);
-store.subscribe(() => console.log(store.getState()));
-//
-// // Dispatch some actions
-store.dispatch(flyTo(new Viewport(41.221494, -75.40171, 15, 25, 40)));
-// store.dispatch(flyTo({ latitude: "125" }));
-// store.dispatch(flyTo({ longitude: "poop" }));
 
 export default store;
