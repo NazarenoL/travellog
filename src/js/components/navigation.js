@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 
 class Navigation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { collapsed: true };
+  state = { collapsed: true };
 
-    this.toggleMenu = this.toggleMenu.bind(this);
-  }
-
-  toggleMenu() {
+  toggleMenu = () => {
     this.setState(state => ({
       collapsed: !state.collapsed
     }));
-  }
+  };
 
   render() {
     let collapsed_class = this.state.collapsed ? "" : "open";
