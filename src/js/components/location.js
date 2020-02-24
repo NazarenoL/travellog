@@ -29,7 +29,7 @@ class Location extends Component {
         minTopValue={100}
       >
         <section className={this.state.isVisible ? "active" : ""}>
-          <h3>{this.props.name}</h3>
+          <h3>{this.props.title}</h3>
           {this.props.description}
           <span className="date">{this.props.date}</span>
 

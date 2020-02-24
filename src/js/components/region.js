@@ -6,7 +6,7 @@ class Region extends Component {
       <>
         <div className="section">
           <i className={`mg ${this.props.icon}`}></i>
-          <h2>{this.props.name}</h2>
+          <h2>{this.props.title}</h2>
         </div>
         {this.props.children}
       </>
