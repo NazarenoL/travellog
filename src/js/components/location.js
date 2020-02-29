@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import marked from "marked";
 
 import Image1x1 from "../../images/image-1x1.jpg";
 import Image2x1 from "../../images/image-2x1.jpg";
@@ -30,7 +31,9 @@ class Location extends Component {
       >
         <section className={this.state.isVisible ? "active" : ""}>
           <h3>{this.props.title}</h3>
-          {this.props.description}
+          <div
+            dangerouslySetInnerHTML={{ __html: marked(this.props.description) }}
+          />
           <span className="date">{this.props.date}</span>
 
           <div className="grid">

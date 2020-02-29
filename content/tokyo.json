@@ -6,7 +6,7 @@
   "locations": [
     {
       "title": "Ghibli Museum",
-      "description": "",
+      "description": "test **description** with something on bold.",
       "photos": [],
       "date": "Jan 1st",
       "viewport": {

@@ -23,6 +23,10 @@ $blue: #4d77be;
   background-color: $background-gray;
   -webkit-overflow-scrolling: touch;
 
+  strong {
+    font-weight: bold;
+  }
+
   @media #{$break-mobile-large} {
     background: transparent;
     width: 100%;
