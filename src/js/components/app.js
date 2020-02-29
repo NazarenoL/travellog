@@ -29,15 +29,6 @@ class App extends Component {
             {region.locations.map((value, index) => {
               return <Location key={index} {...value} />;
             })}
-
-            {
-              // <Location
-              //   title="Location Two"
-              //   description={<p>But this place was even better..</p>}
-              //   date="Jan 16"
-              //   viewport={new Viewport(40.740883, -75.748217, 11, 55, 40)}
-              // />
-            }
           </Region>
 
           <Footer />
