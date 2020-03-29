@@ -4,7 +4,7 @@ class Region extends Component {
   render() {
     return (
       <>
-        <div className="section state">
+        <div className="section region">
           <h2>{this.props.title}</h2>
         </div>
         {this.props.children}

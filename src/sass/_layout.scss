@@ -10,7 +10,8 @@ $background-gray: #fafafa;
 $mid-gray: #aaaaaa;
 $caption-gray: #c9c9c9;
 $light-gray: #dddddd;
-$heading-gray: #ccccb5;
+$accent: #b2d0cd;
+$background: #e7f1f0;
 $blue: #4d77be;
 
 /* Basic layout elements */
@@ -119,7 +120,17 @@ section:last-child {
 
 section {
   &#intro {
-    padding-top: 120px;
+    padding: 50px;
+    background-color: $background;
+    color: $black;
+
+    h2 {
+      color: $black;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
   }
 
   &.navigation {
@@ -211,8 +222,7 @@ section {
 }
 
 /* These are the sections with the location icons and headings */
-.section.state {
-  padding-top: 100px;
+.section.region {
   padding-top: 100px;
   margin-top: -50px; /* we do this so using the nav to jump to anchors won't cut off the headings */
   margin-bottom: -120px;
@@ -401,7 +411,6 @@ section {
   .h1,
   .h2 {
     color: $black;
-    padding-bottom: 1rem;
   }
 
   p {
@@ -461,12 +470,12 @@ h1,
 
 h2,
 .h2 {
-  font-size: 1rem;
+  font-size: 2rem;
   padding-bottom: 10px;
   text-transform: uppercase;
   font-weight: 800;
-  color: $heading-gray;
-  letter-spacing: 1px;
+  color: $accent;
+  letter-spacing: 5px;
 }
 
 h3,
@@ -474,7 +483,7 @@ h3,
   font-size: 1.2rem;
   padding-bottom: 10px;
   font-weight: 800;
-  color: #1f1f1f;
+  color: $black;
   display: block;
   letter-spacing: 0.025rem;
 }
@@ -501,16 +510,16 @@ a {
 i {
   position: relative;
   display: inline-block;
-  width: 3em;
-  height: 3em;
+  width: 1.9em;
+  height: 1.35em;
   margin-right: 8px;
 
   &:after {
-    width: 3em;
-    height: 3em;
+    width: 1.8em;
+    height: 1.8em;
     position: absolute;
     content: "";
-    background-color: $heading-gray;
+    background-color: $accent;
     border-radius: 50%;
     z-index: 0;
   }
@@ -523,8 +532,8 @@ i + h2 {
 }
 
 i:before {
-  font-size: 1.75em;
-  width: 1.75em;
+  font-size: 1em;
+  width: 1.9em;
   text-align: center;
   position: absolute;
   left: 0;
