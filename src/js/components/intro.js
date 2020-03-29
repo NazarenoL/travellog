@@ -1,11 +1,17 @@
 import React, { Component } from "react";
+import marked from "marked";
 
 class Intro extends Component {
   render() {
     return (
       <section id="intro" className="active">
-        <h1>My Travel Log: 2018</h1>
-        <p>Say a little something about why you were traveling!</p>
+        <h2>
+          <i className={`mg ${this.props.icon}`}></i>
+          {this.props.title}
+        </h2>
+        <p
+          dangerouslySetInnerHTML={{ __html: marked(this.props.description) }}
+        />
       </section>
     );
   }

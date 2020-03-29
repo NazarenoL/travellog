@@ -37,24 +37,17 @@ class Location extends Component {
           <span className="date">{this.props.date}</span>
 
           <div className="grid">
-            <div className="box box--2x2">
-              <div
-                className="image-wrapper"
-                style={{ backgroundImage: "url(" + Image3x1 + ")" }}
-              ></div>
-            </div>
-            <div className="box box--1x1">
-              <div
-                className="image-wrapper"
-                style={{ backgroundImage: "url(" + Image2x1 + ")" }}
-              ></div>
-            </div>
-            <div className="box box--1x1">
-              <div
-                className="image-wrapper"
-                style={{ backgroundImage: "url(" + Image1x1 + ")" }}
-              ></div>
-            </div>
+            {this.props.photos.map((photo, photoIndex) => {
+              <div className={["box", "box--" + photo.size]} key={photoIndex}>
+                <div
+                  className="image-wrapper"
+                  style={{
+                    backgroundImage:
+                      "url(" + require("../../images/" + photo.filename) + ")"
+                  }}
+                ></div>
+              </div>;
+            })}
           </div>
         </section>
       </VisibilitySensor>

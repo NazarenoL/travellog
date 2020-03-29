@@ -11,7 +11,7 @@ import Map, { Viewport } from "./map";
 import Navigation from "./navigation";
 import Region from "./region";
 
-import region from "../../../content/tokyo.json";
+import chapter from "../../../content/tokyo.json";
 
 class App extends Component {
   render() {
@@ -23,13 +23,20 @@ class App extends Component {
         <div id="writing">
           <Navigation />
 
-          <Intro />
-
-          <Region icon={region.mapFontIcon} title={region.title}>
-            {region.locations.map((value, index) => {
-              return <Location key={index} {...value} />;
-            })}
-          </Region>
+          <Intro
+            title={chapter.title}
+            description={chapter.description}
+            icon={chapter.mapFontIcon}
+          />
+          {chapter.regions.map((region, regionIndex) => {
+            return (
+              <Region title={region.title} key={regionIndex}>
+                {region.locations.map((location, locationIndex) => {
+                  return <Location key={locationIndex} {...location} />;
+                })}
+              </Region>
+            );
+          })}
 
           <Footer />
         </div>
