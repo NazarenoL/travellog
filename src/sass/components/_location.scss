@@ -3,9 +3,10 @@
 
   opacity: 0.25;
   border-bottom: 1px solid $light-gray;
+  background-color: $background-gray;
 
   @media #{$break-mobile-large} {
-    padding: 50px 20px;
+    margin-top: 400px;
   }
 
   h3 {
