@@ -29,7 +29,9 @@ class Location extends Component {
         partialVisibility={true}
         minTopValue={100}
       >
-        <section className={this.state.isVisible ? "active" : ""}>
+        <section
+          className={this.state.isVisible ? "location active" : "location"}
+        >
           <h3>{this.props.title}</h3>
           <div
             dangerouslySetInnerHTML={{ __html: marked(this.props.description) }}

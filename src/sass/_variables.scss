@@ -1,0 +1,14 @@
+$break-mobile-large: "screen and (max-width: 767px)";
+$black: #444444;
+$background-gray: #fafafa;
+$mid-gray: #aaaaaa;
+$caption-gray: #c9c9c9;
+$light-gray: #dddddd;
+$accent: #b2d0cd;
+$background: lighten($accent, 20);
+$border: darken($background, 5);
+$blue: #4d77be;
+
+@mixin page-block {
+  padding: 50px;
+}

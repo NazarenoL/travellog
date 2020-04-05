@@ -1,0 +1,72 @@
+/* Type */
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  color: $black;
+  line-height: 25px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 1em 0;
+}
+
+em {
+  font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.4;
+  font-weight: 800;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    color: $blue;
+    text-decoration: underline;
+  }
+}
+
+/* Icons Headings */
+i {
+  position: relative;
+  display: inline-block;
+  width: 1.9em;
+  height: 1.35em;
+  margin-right: 8px;
+
+  &:after {
+    width: 1.8em;
+    height: 1.8em;
+    position: absolute;
+    content: "";
+    background-color: $accent;
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  &:before {
+    font-size: 1em;
+    width: 1.9em;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0.35em;
+    color: white;
+    z-index: 1;
+  }
+}

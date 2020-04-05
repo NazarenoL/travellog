@@ -1,0 +1,180 @@
+.grid {
+  margin-top: 4em;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 4px;
+  grid-auto-flow: dense;
+
+  .box {
+    /* Default. Replaced when in a .region.active */
+    opacity: 0.15;
+    transition: all 0.75s ease-in-out;
+    -moz-transition: all 0.75s ease-in-out;
+    -webkit-transition: all 0.75s ease-in-out;
+    grid-column-start: auto;
+
+    .image-wrapper {
+      background-position: center;
+      background-size: cover;
+    }
+
+    /* These are all our potential image box sizes */
+    &--1x1 {
+      /* Padding needs to be applied to inner divs */
+      .image-wrapper {
+        padding-bottom: 100%;
+      }
+    }
+    &--1x2 {
+      grid-row-end: span 2;
+      .image-wrapper {
+        padding-bottom: 150%;
+      }
+    }
+    &--2x1 {
+      grid-column-end: span 2;
+      .image-wrapper {
+        padding-bottom: calc(50% - 2px);
+      }
+    }
+    &--2x2 {
+      grid-column-end: span 2;
+      grid-row-end: span 2;
+      .image-wrapper {
+        padding-bottom: 100%;
+      }
+    }
+    &--3x1 {
+      grid-column-end: span 3;
+      .image-wrapper {
+        padding-bottom: 33.33%;
+      }
+    }
+    &--3x2 {
+      grid-column-end: span 3;
+      .image-wrapper {
+        padding-bottom: 66.66%;
+      }
+    }
+    &--3x3 {
+      grid-column-end: span 3;
+      .image-wrapper {
+        padding-bottom: 100%;
+      }
+    }
+    /* Mobile styles */
+    &--1x1,
+    &--1x2,
+    &--2x2,
+    &--3x3 {
+      @media #{$break-mobile-large} {
+        grid-column-end: span 3;
+        .image-wrapper {
+          padding-bottom: 100%;
+        }
+      }
+    }
+    &--2x1,
+    &--3x1,
+    &--3x2 {
+      @media #{$break-mobile-large} {
+        grid-column-end: span 3;
+        .image-wrapper {
+          padding-bottom: 66.66%;
+        }
+      }
+    }
+  }
+}
+
+/* A mess of styles for browsers that don't support grid */
+.no-cssgrid .grid,
+.cssgridlegacy .grid {
+  display: block;
+  font-size: 0;
+  margin-top: 50px;
+
+  .box {
+    width: calc(100% / 3 - 6px);
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid white;
+    background-color: $background-gray;
+
+    .image-wrapper {
+      background-size: cover;
+      background-position: center;
+    }
+
+    &--1x1 {
+      width: calc(100% / 3 - 6px);
+      .image-wrapper {
+        padding-bottom: 100%;
+      }
+    }
+    &--1x2 {
+      width: calc(100% / 3 - 6px);
+      .image-wrapper {
+        padding-bottom: 100%;
+      }
+    }
+    &--2x1 {
+      width: calc(100% * 2 / 3 - 8px);
+      .image-wrapper {
+        padding-bottom: calc(50% - 2px);
+      }
+    }
+    &--2x2 {
+      width: calc(100% / 3 - 6px);
+      .image-wrapper {
+        padding-bottom: 100%;
+      }
+    }
+    &--3x1 {
+      width: calc(100% - 10px);
+      .image-wrapper {
+        padding-bottom: 33.33%;
+      }
+    }
+    &--3x2 {
+      width: calc(100% - 10px);
+      .image-wrapper {
+        padding-bottom: 66.66%;
+      }
+    }
+    &--3x3 {
+      width: calc(100% - 10px);
+      .image-wrapper {
+        padding-bottom: 100%;
+      }
+    }
+    /* Mobile styles */
+    &--1x1,
+    &--1x2,
+    &--2x2,
+    &--3x3 {
+      @media #{$break-mobile-large} {
+        width: 100%;
+        .image-wrapper {
+          padding-bottom: 100%;
+        }
+      }
+    }
+    &--2x1,
+    &--3x1,
+    &--3x2 {
+      @media #{$break-mobile-large} {
+        width: 100%;
+        .image-wrapper {
+          padding-bottom: 66.66%;
+        }
+      }
+    }
+  }
+}
+
+.region.active .box {
+  opacity: 1;
+}

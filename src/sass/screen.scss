@@ -1,3 +1,11 @@
-@import '../../node_modules/reset-css/sass/reset';
+@import "../../node_modules/reset-css/sass/reset";
 
+@import "variables";
+@import "general";
 @import "layout";
+@import "components/footer";
+@import "components/intro";
+@import "components/location";
+@import "components/navigation";
+@import "components/photogrid";
+@import "components/region";

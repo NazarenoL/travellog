@@ -4,10 +4,10 @@ class Region extends Component {
   render() {
     return (
       <>
-        <div className="section region">
+        <section className="region">
           <h2>{this.props.title}</h2>
-        </div>
-        {this.props.children}
+          {this.props.children}
+        </section>
       </>
     );
   }

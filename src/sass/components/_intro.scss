@@ -1,0 +1,19 @@
+#intro {
+  @include page-block;
+  padding-bottom: 40px;
+
+  border-bottom: 1px solid $border;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+    color: $accent;
+    text-transform: uppercase;
+
+    i {
+      margin-right: 11px;
+    }
+  }
+}

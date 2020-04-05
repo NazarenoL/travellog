@@ -1,0 +1,26 @@
+footer {
+  @include page-block;
+
+  text-align: center;
+
+  strong {
+    color: $black;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: $caption-gray;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+
+    a {
+      color: $caption-gray;
+      text-decoration: underline;
+
+      &:hover,
+      &:active {
+        color: $mid-gray;
+      }
+    }
+  }
+}

@@ -4,15 +4,15 @@ import marked from "marked";
 class Intro extends Component {
   render() {
     return (
-      <section id="intro" className="active">
-        <h2>
+      <header id="intro">
+        <h1>
           <i className={`mg ${this.props.icon}`}></i>
           {this.props.title}
-        </h2>
+        </h1>
         <p
           dangerouslySetInnerHTML={{ __html: marked(this.props.description) }}
         />
-      </section>
+      </header>
     );
   }
 }

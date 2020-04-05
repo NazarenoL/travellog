@@ -13,14 +13,14 @@ class Navigation extends Component {
     let collapsed_class = this.state.collapsed ? "" : "open";
 
     return (
-      <section className="navigation">
+      <div className="navigation">
         <a className={`toggle ${collapsed_class}`} onClick={this.toggleMenu} />
         <div className={`menu ${collapsed_class}`}>
           <a href="#pa" title="Skip to Pennsylvania" className="pa nav-icon">
             <i className="mg map-us-pa"></i>
           </a>
         </div>
-      </section>
+      </div>
     );
   }
 }

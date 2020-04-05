@@ -1,0 +1,86 @@
+.navigation {
+  position: fixed;
+  right: 0px;
+  top: 5px;
+  width: auto;
+  opacity: 1;
+  z-index: 5;
+  padding: 10px;
+  border-bottom: 0px;
+  background: transparent !important;
+
+  .toggle {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 22px;
+    color: #dddddd;
+
+    &:after {
+      content: "☰";
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+
+    &:hover {
+      color: #cbcbcb;
+      text-decoration: none;
+    }
+
+    &.open {
+      color: #cbcbcb;
+
+      &:after {
+        content: "✕";
+      }
+    }
+
+    @media #{$break-mobile-large} {
+      color: #444444;
+
+      &:after {
+        padding: 8px 10px;
+        background-color: #ffffff;
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      &.open {
+        color: #444444;
+      }
+    }
+  }
+
+  .menu {
+    display: none;
+    margin-right: 40px;
+    padding: 15px 10px 10px 15px;
+    background: white;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+
+    &.open {
+      display: block;
+    }
+
+    @media #{$break-mobile-large} {
+      margin-right: 50px;
+    }
+  }
+
+  .nav-icon {
+    &:hover {
+      i {
+        &::after {
+          background: #b6b6a4;
+        }
+      }
+    }
+  }
+  i {
+    font-size: 0.45rem;
+  }
+}

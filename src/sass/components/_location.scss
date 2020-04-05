@@ -1,0 +1,16 @@
+.location {
+  @include page-block;
+
+  opacity: 0.25;
+  border-bottom: 1px solid $light-gray;
+
+  @media #{$break-mobile-large} {
+    padding: 50px 20px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+    letter-spacing: 0.025rem;
+  }
+}

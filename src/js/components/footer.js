@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Footer extends Component {
   render() {
     return (
-      <div className="section end">
+      <footer>
         <p>
           <strong className="h2">This is not a travel guide.</strong> This is a
           log of my experiences traveling, and so, it shows what I, Naz,
@@ -28,7 +28,7 @@ class Footer extends Component {
             Grab the code
           </a>
         </p>
-      </div>
+      </footer>
     );
   }
 }
