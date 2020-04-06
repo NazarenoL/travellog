@@ -2,7 +2,7 @@
   h2 {
     @include page-block;
 
-    background-color: $background;
+    background-color: $background-accent;
     color: $accent;
     font-size: 1.5rem;
     text-transform: uppercase;

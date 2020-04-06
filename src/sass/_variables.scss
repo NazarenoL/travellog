@@ -1,14 +1,20 @@
+// Screen size
 $break-mobile-large: "screen and (max-width: 767px)";
-$black: #444444;
+
+// Colors
+$accent: #82b3ae;
+$accent-hover: darken($accent, 15);
+$border: lighten($accent, 25);
 $background-gray: #fafafa;
+$background-accent: lighten($accent, 30);
+
+$black: #444444;
 $mid-gray: #aaaaaa;
-$caption-gray: #c9c9c9;
 $light-gray: #dddddd;
-$accent: #b2d0cd;
-$background: lighten($accent, 20);
-$border: darken($background, 5);
+
 $blue: #4d77be;
 
 @mixin page-block {
   padding: 50px;
+  background-color: $background-gray;
 }

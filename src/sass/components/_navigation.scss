@@ -74,8 +74,9 @@
       }
 
       &:hover {
+        color: $accent-hover;
         i::after {
-          background: $accent;
+          background: $accent-hover;
         }
       }
     }
