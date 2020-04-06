@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Navigation extends Component {
   state = { collapsed: true };
@@ -16,9 +17,17 @@ class Navigation extends Component {
       <div className="navigation">
         <a className={`toggle ${collapsed_class}`} onClick={this.toggleMenu} />
         <div className={`menu ${collapsed_class}`}>
-          <a href="#pa" title="Skip to Pennsylvania" className="pa nav-icon">
-            <i className="mg map-us-pa"></i>
-          </a>
+          {this.props.chapters.map(chapter => (
+            <Link
+              to={"/" + chapter.slug}
+              title={"Recommendations for " + chapter.content.title}
+              className="menu-link"
+              key={chapter.slug}
+            >
+              <i className={`mg ${chapter.content.mapFontIcon}`}></i>
+              {chapter.content.title}
+            </Link>
+          ))}
         </div>
       </div>
     );

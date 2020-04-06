@@ -15,7 +15,7 @@
     right: 10px;
     top: 10px;
     font-size: 22px;
-    color: #dddddd;
+    color: $mid-gray;
 
     &:after {
       content: "☰";
@@ -27,29 +27,20 @@
     }
 
     &:hover {
-      color: #cbcbcb;
-      text-decoration: none;
+      color: $black;
     }
 
-    &.open {
-      color: #cbcbcb;
-
-      &:after {
-        content: "✕";
-      }
+    &.open:after {
+      content: "✕";
     }
 
     @media #{$break-mobile-large} {
-      color: #444444;
+      color: $black;
 
       &:after {
         padding: 8px 10px;
         background-color: #ffffff;
         box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      &.open {
-        color: #444444;
       }
     }
   }
@@ -57,7 +48,7 @@
   .menu {
     display: none;
     margin-right: 40px;
-    padding: 15px 10px 10px 15px;
+    padding: 5px 10px;
     background: white;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
@@ -69,18 +60,24 @@
     @media #{$break-mobile-large} {
       margin-right: 50px;
     }
-  }
 
-  .nav-icon {
-    &:hover {
-      i {
-        &::after {
-          background: #b6b6a4;
+    .menu-link {
+      color: $accent;
+      text-decoration: none;
+      display: block;
+      font-size: 0.8rem;
+      line-height: 2rem;
+      border-bottom: 1px solid $border;
+      margin: 5px 0;
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &:hover {
+        i::after {
+          background: $accent;
         }
       }
     }
-  }
-  i {
-    font-size: 0.45rem;
   }
 }
