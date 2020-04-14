@@ -9,6 +9,19 @@ CMS.registerPreviewStyle(
   { raw: true }
 );
 
-CMS.registerPreviewTemplate("location", ({ entry }) => {
-  return <Location isVisible={true} {...entry.toJS().data} />;
-});
+CMS.registerPreviewTemplate(
+  "location",
+  ({ entry, _widgetFor, _widgetsFor, getAsset }) => {
+    let data = entry.toJS().data;
+
+    // Override images with temp asset path
+    // @see https://www.netlifycms.org/docs/customization/
+    if (data.photos) {
+      data.photos = data.photos.map((photo, photoIndex) => {
+        return { size: photo.size, image: getAsset(photo.image).toString() };
+      });
+    }
+
+    return <Location isVisible={true} {...data} />;
+  }
+);
