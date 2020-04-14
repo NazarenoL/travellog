@@ -1,9 +1,8 @@
-export const FLY_TO = 'FLY_TO'
-
+export const FLY_TO = "FLY_TO";
 
 /*
  * Action creators
  */
 export function flyTo(viewport) {
-  return { type: FLY_TO, viewport }
+  return { type: FLY_TO, viewport };
 }
