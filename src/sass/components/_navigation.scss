@@ -52,6 +52,12 @@
     background: white;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
+    min-width: 150px;
+    text-align: center;
+
+    .mg {
+      text-align: left;
+    }
 
     &.open {
       display: block;
