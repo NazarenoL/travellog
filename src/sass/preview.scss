@@ -1,0 +1,7 @@
+@import "screen";
+
+.location {
+  @media #{$break-mobile-large} {
+    margin-top: 0;
+  }
+}

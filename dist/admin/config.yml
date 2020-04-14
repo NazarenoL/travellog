@@ -1,0 +1,107 @@
+# See https://github.com/netlify/netlify-cms/blob/master/example/config.yml
+backend:
+  name: git-gateway
+  branch: test-content
+
+publish_mode: editorial_workflow
+
+media_folder: "dist/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - label: Chapter
+    name: chapter
+    editor:
+      preview: true
+    folder: content/chapters
+    slug: "{{slug}}"
+    create: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Map Font Icon class
+        name: mapFontIcon
+        widget: string
+        default: "map-jp"
+      - label: Regions
+        name: regions
+        widget: relation
+        collection: region
+        searchFields: [title]
+        valueField: title
+        required: false
+        multiple: true
+  - label: Region
+    name: region
+    folder: content/regions
+    create: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Locations
+        name: locations
+        widget: relation
+        collection: location
+        searchFields: [title]
+        valueField: title
+        multiple: true
+        required: false
+  - label: Location
+    name: location
+    folder: content/locations
+    create: true
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Date
+        name: date
+        widget: string
+      - label: Map Coordinates
+        name: coordinates
+        widget: map
+      - label: Map Zoom
+        name: zoom
+        widget: number
+        valueType: int
+      - label: Map Bearing
+        name: bearing
+        widget: number
+        valueType: int
+      - label: Map Pitch
+        name: pitch
+        widget: number
+        valueType: int
+      - label: Photos
+        name: photos
+        widget: list
+        fields:
+          - label: Image
+            name: image
+            widget: image
+            allow_multiple: false
+          - label: Size
+            name: size
+            widget: select
+            options: ["1x1", "1x2", "2x1", "2x2", "3x1", "3x2", "3x3"]
+  - label: Settings
+    name: settings
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "content/settings/site_settings.yml"
+        label: "Site Settings"
+        name: "site_settings"
+        fields:
+          - label: Footer text
+            name: footer
+            widget: markdown

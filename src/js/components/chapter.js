@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Intro from "./intro";
-import Location from "./location";
+import LocationWithVisibility from "./locationWithVisibility";
 import Region from "./region";
 
 class Chapter extends Component {
@@ -17,7 +17,9 @@ class Chapter extends Component {
           return (
             <Region title={region.title} key={regionIndex}>
               {region.locations.map((location, locationIndex) => {
-                return <Location key={locationIndex} {...location} />;
+                return (
+                  <LocationWithVisibility key={locationIndex} {...location} />
+                );
               })}
             </Region>
           );

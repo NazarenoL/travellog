@@ -4,10 +4,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isDevelopment = process.env.NODE_ENV === "development";
 
 module.exports = {
-  entry: "./src/js/index.js",
+  entry: {
+    site: "./src/js/index.js",
+    admin: "./src/admin/js/index.js"
+  },
   devtool: "source-map",
   output: {
-    filename: "js/main.js",
+    filename: "js/[name]/main.js",
     path: path.resolve(__dirname, "dist")
   },
   devServer: {
@@ -52,7 +55,13 @@ module.exports = {
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/index.html",
-      filename: "./index.html"
+      filename: "./index.html",
+      chunks: ["site"]
+    }),
+    new HtmlWebPackPlugin({
+      template: "./src/admin/index.html",
+      filename: "./admin/index.html",
+      chunks: ["admin"]
     }),
     new MiniCssExtractPlugin({
       filename: "css/[name].css"
