@@ -22,15 +22,16 @@ class Location extends Component {
         <div className="grid">
           {!this.props.photos ||
             this.props.photos.map((photo, photoIndex) => {
+              if (!photo.image || !photo.size) {
+                return;
+              }
+
               return (
                 <div className={`box box--${photo.size}`} key={photoIndex}>
                   <div
                     className="image-wrapper"
                     style={{
-                      backgroundImage:
-                        "url(" +
-                        require("./../../images/" + photo.filename) +
-                        ")"
+                      backgroundImage: `url(${photo.image})`
                     }}
                   ></div>
                 </div>
