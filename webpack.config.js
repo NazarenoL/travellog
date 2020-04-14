@@ -2,8 +2,10 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isDevelopment = process.env.NODE_ENV === "development";
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
 
-module.exports = {
+module.exports = smp.wrap({
   entry: {
     site: "./src/js/index.js",
     admin: "./src/admin/js/index.js"
@@ -67,4 +69,4 @@ module.exports = {
       filename: "css/[name].css"
     })
   ]
-};
+});
