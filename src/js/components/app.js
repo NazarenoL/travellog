@@ -7,15 +7,14 @@ import store from "../store";
 
 import Chapter from "./chapter";
 import Footer from "./footer";
+import Home from "./home";
 import Map, { Viewport } from "./map";
 import Navigation from "./navigation";
 
-import chapter from "../../../content/tokyo.json";
 import chapters from "../../../content/index.js";
 
 class App extends Component {
   render() {
-    console.log(chapters.entries());
     return (
       <Router>
         <div id="map">
@@ -29,6 +28,9 @@ class App extends Component {
                 <Chapter {...chapter.content} />
               </Route>
             ))}
+            <Route path={"/"}>
+              <Home chapters={chapters} />
+            </Route>
           </Switch>
           <Footer />
         </div>
