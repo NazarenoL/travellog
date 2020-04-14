@@ -1,10 +1,17 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Intro from "./intro";
 import LocationWithVisibility from "./locationWithVisibility";
 import Region from "./region";
 
+import { flyTo } from "../actions";
+
 class Chapter extends Component {
+  componentDidMount() {
+    this.props.flyTo(this.props.viewport);
+  }
+
   render() {
     return (
       <>
@@ -29,4 +36,7 @@ class Chapter extends Component {
   }
 }
 
-export default Chapter;
+export default connect(
+  null,
+  { flyTo }
+)(Chapter);

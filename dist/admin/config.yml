@@ -51,6 +51,21 @@ collections:
         valueField: title
         multiple: true
         required: false
+      - label: Map Coordinates
+        name: coordinates
+        widget: map
+      - label: Map Zoom
+        name: zoom
+        widget: number
+        valueType: int
+      - label: Map Bearing
+        name: bearing
+        widget: number
+        valueType: int
+      - label: Map Pitch
+        name: pitch
+        widget: number
+        valueType: int
   - label: Location
     name: location
     folder: content/locations
