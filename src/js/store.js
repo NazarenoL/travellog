@@ -17,6 +17,9 @@ function travelApp(state = initialState, action) {
   return state;
 }
 
-let store = createStore(travelApp);
+let store = createStore(
+  travelApp,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 export default store;
