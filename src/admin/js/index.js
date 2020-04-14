@@ -1,9 +1,9 @@
 import React from "react";
-import CMS from "netlify-cms-app";
 
 import Location from "../../js/components/location";
+import Map from "../../js/components/map";
 
-CMS.init();
+CMS = window.NetlifyCms;
 CMS.registerPreviewStyle(
   require("!css-loader!sass-loader!../../sass/preview.scss").toString(),
   { raw: true }
