@@ -3,11 +3,13 @@
 
   @media #{$break-mobile-large} {
     margin-top: 300px;
+    padding-top: 20px;
   }
 
   a {
     text-decoration: none;
     margin-bottom: 20px;
+    display: block;
     &:last-child {
       margin-bottom: 0;
     }
