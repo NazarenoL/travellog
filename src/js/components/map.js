@@ -19,7 +19,7 @@ class Map extends Component {
   };
 
   componentDidMount() {
-    let countries_visited = ["ARG", "BRA", "IRL", "FLK "];
+    let countries_visited = ["ARG", "BRA", "IRL", "FLK"];
     let countries = countriesGeoJson();
 
     countries.features = countries.features.filter(x =>
@@ -45,7 +45,11 @@ class Map extends Component {
         height="100%"
       >
         <Source type="geojson" data={this.state.countries}>
-          {this.props.datalayer == null || <Layer {...this.props.datalayer} />}
+          {this.props.datalayer == null ? (
+            <></>
+          ) : (
+            <Layer {...this.props.datalayer} />
+          )}
         </Source>
       </MapGL>
     );
