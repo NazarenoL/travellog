@@ -28,6 +28,13 @@ class Navigation extends Component {
               {chapter.content.title}
             </Link>
           ))}
+          <Link
+            to="/"
+            title="Back to Homepage"
+            className="menu-link menu-link-homepage"
+          >
+            Back to Home
+          </Link>
         </div>
       </div>
     );
