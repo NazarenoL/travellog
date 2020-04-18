@@ -13,7 +13,7 @@ class Home extends Component {
     this.props.flyTo(new Viewport(0, 0, 1, 0, 0));
     this.props.setDataLayer({
       type: "fill",
-      paint: { "fill-color": "#128d98", "fill-opacity": 0.5 }
+      paint: { "fill-color": "#e58f52", "fill-opacity": 0.5 }
     });
   }
 
