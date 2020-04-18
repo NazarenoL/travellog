@@ -11,6 +11,10 @@
     color: $accent;
     text-transform: uppercase;
 
+    @media #{$break-mobile-large} {
+      line-height: 1.8em;
+    }
+
     i {
       margin-right: 11px;
     }
