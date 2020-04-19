@@ -4,7 +4,7 @@ backend:
   branch: test-content
 
 publish_mode: editorial_workflow
-
+format: json
 media_folder: "dist/images/uploads"
 public_folder: "/images/uploads"
 
@@ -58,14 +58,17 @@ collections:
         name: zoom
         widget: number
         valueType: int
+        max: 24
       - label: Map Bearing
         name: bearing
         widget: number
         valueType: int
+        max: 360
       - label: Map Pitch
         name: pitch
         widget: number
         valueType: int
+        max: 60
   - label: Location
     name: location
     folder: content/locations
@@ -87,14 +90,17 @@ collections:
         name: zoom
         widget: number
         valueType: int
+        max: 24
       - label: Map Bearing
         name: bearing
         widget: number
         valueType: int
+        max: 360
       - label: Map Pitch
         name: pitch
         widget: number
         valueType: int
+        max: 60
       - label: Photos
         name: photos
         widget: list
