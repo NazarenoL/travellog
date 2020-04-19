@@ -25,7 +25,7 @@
   to = "/index.html"
   status = 200
 
-  [template.environment]
-    MAPBOX_TOKEN = "REPLACE THIS with your mapbox token"
-    PAGE_TITLE = "Travel Log"
-    PAGE_DESCRIPTION = "Places I traveled to."
+[template.environment]
+  MAPBOX_TOKEN = "REPLACE THIS with your mapbox token"
+  PAGE_TITLE = "Travel Log"
+  PAGE_DESCRIPTION = "Places I traveled to."
