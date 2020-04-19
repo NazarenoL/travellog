@@ -14,4 +14,9 @@ footer: >-
 
 
   Made by myself, based on a Design by [Lauren Hallden](https://laurenhallden.com/ "Lauren Hallden, Designer").
+countries_visited:
+  - ARG
+  - FKL
+  - IRL
+  - ""
 ---
