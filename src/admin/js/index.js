@@ -1,7 +1,6 @@
 import React from "react";
 
-import Location from "../../js/components/location";
-import Map from "../../js/components/map";
+import ChapterPreview from "./chapterPreview";
 
 CMS = window.NetlifyCms;
 CMS.registerPreviewStyle(
@@ -9,19 +8,11 @@ CMS.registerPreviewStyle(
   { raw: true }
 );
 
+CMS.registerPreviewStyle("/css/mapglyphs.css");
+
 CMS.registerPreviewTemplate(
-  "location",
-  ({ entry, _widgetFor, _widgetsFor, getAsset }) => {
-    let data = entry.toJS().data;
-
-    // Override images with temp asset path
-    // @see https://www.netlifycms.org/docs/customization/
-    if (data.photos) {
-      data.photos = data.photos.map((photo, photoIndex) => {
-        return { size: photo.size, image: getAsset(photo.image).toString() };
-      });
-    }
-
-    return <Location isVisible={true} {...data} />;
-  }
+  "chapter",
+  ({ entry, _widgetFor, _widgetsFor, getAsset }) => (
+    <ChapterPreview {...entry.toJS().data} getAsset={getAsset} />
+  )
 );

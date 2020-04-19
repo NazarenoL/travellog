@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import slugify from "slugify";
 
 import Intro from "./intro";
 import LocationWithVisibility from "./locationWithVisibility";
 import Region from "./region";
 
-import { regions, locations } from "../content";
 import { flyTo } from "../actions";
 
 class Chapter extends Component {
@@ -22,22 +20,13 @@ class Chapter extends Component {
           description={this.props.description}
           icon={this.props.mapFontIcon}
         />
-        {this.props.regions.map((regionName, regionIndex) => {
-          console.log(regionName, regionIndex, regions);
-          let region = regions[slugify(regionName, { lower: true })];
-
-          return (
-            <Region title={region.title} key={regionIndex}>
-              {region.locations.map((locationName, locationIndex) => {
-                let location =
-                  locations[slugify(locationName, { lower: true })];
-                return (
-                  <LocationWithVisibility key={locationIndex} {...location} />
-                );
-              })}
-            </Region>
-          );
-        })}
+        {this.props.regions.map((region, regionIndex) => (
+          <Region title={region.title} key={regionIndex}>
+            {region.locations.map((location, locationIndex) => (
+              <LocationWithVisibility key={locationIndex} {...location} />
+            ))}
+          </Region>
+        ))}
       </>
     );
   }
