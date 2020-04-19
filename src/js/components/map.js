@@ -6,10 +6,10 @@ import MapGL, { FlyToInterpolator, Layer, Source } from "react-map-gl";
 
 const countriesGeoJson = require("@geo-maps/countries-land-10km");
 
+import { settings } from "../content";
 import { flyTo } from "../actions";
 
-const MAPBOX_TOKEN =
-  "pk.eyJ1IjoibmF6YXJlbm9sIiwiYSI6ImNrNnBzaTA2YTAyanUzaHFscXViNGt1YmYifQ.TqHgHhcysFdfaH0QvP6MGg";
+const MAPBOX_TOKEN = process.env.MAPBOX_TOKEN;
 
 class Map extends Component {
   state = { countries: null };
@@ -19,7 +19,7 @@ class Map extends Component {
   };
 
   componentDidMount() {
-    let countries_visited = ["ARG", "BRA", "IRL", "FLK"];
+    let countries_visited = settings.countries_visited;
     let countries = countriesGeoJson();
 
     countries.features = countries.features.filter(x =>

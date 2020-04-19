@@ -1,7 +1,12 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require("dotenv-webpack");
+
 const isDevelopment = process.env.NODE_ENV === "development";
+const pageTitle = process.env.PAGE_TITLE || "Travel Log";
+const description = process.env.PAGE_DESCRIPTION || "Places I traveled to.";
+const url = process.env.URL || "http://localhost:9000";
 
 module.exports = {
   entry: {
@@ -55,10 +60,14 @@ module.exports = {
     ]
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html",
-      chunks: ["site"]
+      chunks: ["site"],
+      pageTitle: pageTitle,
+      description: description,
+      url: url
     }),
     new HtmlWebPackPlugin({
       template: "./src/admin/index.html",

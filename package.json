@@ -37,6 +37,7 @@
     "@geo-maps/countries-land-10km": "^0.6.0",
     "css-loader": "^3.4.2",
     "d3-ease": "^1.0.6",
+    "dotenv-webpack": "^1.7.0",
     "frontmatter-markdown-loader": "^3.3.0",
     "mapbox-gl": "^1.7.0",
     "marked": "^0.8.0",

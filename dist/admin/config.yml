@@ -131,3 +131,7 @@ collections:
           - label: Footer Text
             name: footer
             widget: markdown
+          - label: Countries Visited
+            name: countries_visited
+            hint: Highlighted on the homepage map.
+            widget: list
