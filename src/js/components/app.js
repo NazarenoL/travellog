@@ -11,7 +11,7 @@ import Home from "./home";
 import Map, { Viewport } from "./map";
 import Navigation from "./navigation";
 
-import chapters from "../../../content/index.js";
+import { chapters } from "../content";
 
 class App extends Component {
   render() {

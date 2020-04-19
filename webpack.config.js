@@ -49,7 +49,9 @@ module.exports = {
             }
           }
         ]
-      }
+      },
+      // MD
+      { test: /\.md$/, use: [{ loader: "frontmatter-markdown-loader" }] }
     ]
   },
   plugins: [
