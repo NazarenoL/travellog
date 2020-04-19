@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import marked from "marked";
 import { Link } from "react-router-dom";
 
 import Intro from "./intro";
 import { Viewport } from "./map";
 
+import { settings } from "../content";
 import { flyTo, setDataLayer } from "../actions";
 
 class Home extends Component {
@@ -21,10 +21,8 @@ class Home extends Component {
     return (
       <>
         <Intro
-          title={"Naz's Travel Log"}
-          description={
-            "I have been lucky to travel to more than a few places in the world. Lorem ipsum"
-          }
+          title={settings.title}
+          description={settings.home}
           icon={"map-wrld"}
         />
         <div className="chapters">

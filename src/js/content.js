@@ -37,4 +37,6 @@ let locations = locationFiles.reduce(
   {}
 );
 
-export { chapters, regions, locations };
+let settings = require("../../content/settings/site_settings.md").attributes;
+
+export { chapters, regions, locations, settings };

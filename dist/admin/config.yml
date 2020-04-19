@@ -4,7 +4,6 @@ backend:
   branch: test-content
 
 publish_mode: editorial_workflow
-format: json
 media_folder: "dist/images/uploads"
 public_folder: "/images/uploads"
 
@@ -119,10 +118,16 @@ collections:
     editor:
       preview: false
     files:
-      - file: "content/settings/site_settings.yml"
+      - file: "content/settings/site_settings.md"
         label: "Site Settings"
         name: "site_settings"
         fields:
-          - label: Footer text
+          - label: Home Intro Title
+            name: title
+            widget: string
+          - label: Home Intro Text
+            name: home
+            widget: markdown
+          - label: Footer Text
             name: footer
             widget: markdown
