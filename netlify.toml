@@ -5,27 +5,20 @@
 [context.deploy-preview.environment]
   PAGE_TITLE = "[PREVIEW] Travel Log"
 
-# A redirect rule with all the supported properties
+# Redirect for incomplete admin urls
 [[redirects]]
   from = "/admin"
   to = "/admin/"
-
-  # The default HTTP status code is 301, but you can define a different one.
   status = 301
-
-  # By default, redirects won't be applied if there's a file with the same
-  # path as the one defined in the `from` property. Setting `force` to `true`
-  # will make the redirect rule take precedence over any existing files.
   force = true
 
-# The following redirect is intended for use with most SPAs that handle
-# routing internally.
+# Make react router work
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
 [template.environment]
-  MAPBOX_TOKEN = "REPLACE THIS with your mapbox token"
-  PAGE_TITLE = "Travel Log"
-  PAGE_DESCRIPTION = "Places I traveled to."
+  MAPBOX_TOKEN = "Your Mapbox (mapbox.com) token"
+  PAGE_TITLE = "Page Title"
+  PAGE_DESCRIPTION = "Page Description"
