@@ -12,4 +12,6 @@ footer: >-
 countries_visited:
   - ARG
   - IRL
+  - FLK
+  - USA
 ---
