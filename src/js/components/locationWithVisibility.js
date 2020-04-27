@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import VisibilitySensor from "react-visibility-sensor";
 
 import Location from "./location";
+import { Viewport } from "./map";
 
 import { flyTo } from "../actions";
 
@@ -15,7 +16,15 @@ class LocationWithVisibility extends Component {
     }));
 
     if (isVisible) {
-      this.props.flyTo(this.props.viewport);
+      this.props.flyTo(
+        new Viewport(
+          this.props.latitude,
+          this.props.longitude,
+          this.props.zoom,
+          this.props.bearing,
+          this.props.pitch
+        )
+      );
     }
   };
 

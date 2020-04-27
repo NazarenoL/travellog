@@ -25,6 +25,36 @@ collections:
         name: mapFontIcon
         widget: string
         default: "map-jp"
+      - label: Map Latitude
+        name: latitude
+        widget: number
+        valueType: float
+        max: 90
+        min: -90
+      - label: Map Longitude
+        name: longitude
+        widget: number
+        valueType: float
+        max: 180
+        min: -180
+      - label: Map Zoom
+        name: zoom
+        widget: number
+        valueType: int
+        max: 24
+        min: 0
+      - label: Map Bearing
+        name: bearing
+        widget: number
+        valueType: int
+        max: 360
+        min: 0
+      - label: Map Pitch
+        name: pitch
+        widget: number
+        valueType: int
+        max: 60
+        min: 0
       - label: Regions
         name: regions
         widget: list
@@ -32,36 +62,6 @@ collections:
           - label: Title
             name: title
             widget: string
-          - label: Map Latitude
-            name: latitude
-            widget: number
-            valueType: float
-            max: 90
-            min: -90
-          - label: Map Longitude
-            name: longitude
-            widget: number
-            valueType: float
-            max: 180
-            min: -180
-          - label: Map Zoom
-            name: zoom
-            widget: number
-            valueType: int
-            max: 24
-            min: 0
-          - label: Map Bearing
-            name: bearing
-            widget: number
-            valueType: int
-            max: 360
-            min: 0
-          - label: Map Pitch
-            name: pitch
-            widget: number
-            valueType: int
-            max: 60
-            min: 0
           - label: Locations
             name: locations
             widget: list

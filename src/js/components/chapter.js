@@ -4,12 +4,21 @@ import { connect } from "react-redux";
 import Intro from "./intro";
 import LocationWithVisibility from "./locationWithVisibility";
 import Region from "./region";
+import { Viewport } from "./map";
 
 import { flyTo } from "../actions";
 
 class Chapter extends Component {
   componentDidMount() {
-    this.props.flyTo(this.props.viewport);
+    this.props.flyTo(
+      new Viewport(
+        this.props.latitude,
+        this.props.longitude,
+        this.props.zoom,
+        this.props.bearing,
+        this.props.pitch
+      )
+    );
   }
 
   render() {
