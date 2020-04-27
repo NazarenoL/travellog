@@ -22,3 +22,4 @@
   MAPBOX_TOKEN = "Your Mapbox (mapbox.com) token"
   PAGE_TITLE = "Page Title"
   PAGE_DESCRIPTION = "Page Description"
+  GA_TRACKING_ID = "Google Analytics Tracking ID (UA-XXXXXXXX-X)"

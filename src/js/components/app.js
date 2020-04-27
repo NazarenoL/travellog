@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import ReactGA from "react-ga";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
 
 import store from "../store";
 
@@ -13,10 +15,23 @@ import Navigation from "./navigation";
 
 import { chapters } from "../content";
 
+ReactGA.initialize(process.env.GA_TRACKING_ID);
+const history = createBrowserHistory();
+history.listen(location => {
+  console.log("location listened!");
+  // Record a pageview for the given page
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
+
 class App extends Component {
+  componentDidMount() {
+    ReactGA.pageview(window.location.pathname);
+  }
+
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <div id="map">
           <Map />
         </div>
