@@ -20,7 +20,7 @@ collections:
         widget: string
       - label: Description
         name: description
-        widget: text
+        widget: markdown
       - label: Map Font Icon class
         name: mapFontIcon
         widget: string
@@ -71,7 +71,7 @@ collections:
                 widget: string
               - label: Description
                 name: description
-                widget: text
+                widget: markdown
               - label: Date
                 name: date
                 widget: string
