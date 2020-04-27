@@ -32,9 +32,18 @@ collections:
           - label: Title
             name: title
             widget: string
-          - label: Map Coordinates
-            name: coordinates_region
-            widget: map
+          - label: Map Latitude
+            name: latitude
+            widget: number
+            valueType: float
+            max: 90
+            min: -90
+          - label: Map Longitude
+            name: longitude
+            widget: number
+            valueType: float
+            max: 180
+            min: -180
           - label: Map Zoom
             name: zoom
             widget: number
@@ -66,9 +75,18 @@ collections:
               - label: Date
                 name: date
                 widget: string
-              - label: Map Coordinates
-                name: coordinates_location
-                widget: map
+              - label: Map Latitude
+                name: latitude
+                widget: number
+                valueType: float
+                max: 90
+                min: -90
+              - label: Map Longitude
+                name: longitude
+                widget: number
+                valueType: float
+                max: 180
+                min: -180
               - label: Map Zoom
                 name: zoom
                 widget: number
