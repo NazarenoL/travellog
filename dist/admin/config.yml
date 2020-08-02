@@ -15,6 +15,10 @@ collections:
     slug: "{{slug}}"
     create: true
     fields:
+      - label: Visible
+        name: visible
+        widget: boolean
+        required: true
       - label: Title
         name: title
         widget: string
