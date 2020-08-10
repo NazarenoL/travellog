@@ -13,7 +13,7 @@ import Home from "./home";
 import Map, { Viewport } from "./map";
 import Navigation from "./navigation";
 
-import { visibleChapters } from "../content";
+import { chapters, visibleChapters } from "../content";
 
 ReactGA.initialize(process.env.GA_TRACKING_ID);
 const history = createBrowserHistory();
