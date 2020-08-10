@@ -8,8 +8,9 @@ let chapters = chapterFiles.keys().map(chapter => {
     slug: slugify(chapterData.attributes.title, { lower: true }),
     content: chapterData.attributes,
   };
-}).filter(chapter => chapter.content.visible);
+});
+let visibleChapters = chapters.filter(chapter => chapter.content.visible);
 
 let settings = require("../../content/settings/site_settings.md").attributes;
 
-export { chapters, settings };
+export { chapters, settings, visibleChapters };

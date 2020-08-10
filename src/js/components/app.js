@@ -13,7 +13,7 @@ import Home from "./home";
 import Map, { Viewport } from "./map";
 import Navigation from "./navigation";
 
-import { chapters } from "../content";
+import { visibleChapters } from "../content";
 
 ReactGA.initialize(process.env.GA_TRACKING_ID);
 const history = createBrowserHistory();
@@ -36,7 +36,7 @@ class App extends Component {
           <Map />
         </div>
         <div id="writing">
-          <Navigation chapters={chapters} />
+          <Navigation chapters={visibleChapters} />
           <Switch>
             {chapters.map(chapter => (
               <Route path={"/" + chapter.slug} key={chapter.slug}>
@@ -44,7 +44,7 @@ class App extends Component {
               </Route>
             ))}
             <Route path={"/"}>
-              <Home chapters={chapters} />
+              <Home chapters={visibleChapters} />
             </Route>
           </Switch>
           <Footer />
