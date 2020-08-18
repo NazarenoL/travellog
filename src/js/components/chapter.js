@@ -6,19 +6,32 @@ import LocationWithVisibility from "./locationWithVisibility";
 import Region from "./region";
 import { Viewport } from "./map";
 
-import { flyTo } from "../actions";
+import {
+  addToVisibleLocationsStack,
+  removeFromVisibleLocationsStack,
+  VisibleLocation
+} from "../actions";
+
+const CHAPTER_LOCATION_ID = "chapter";
 
 class Chapter extends Component {
-  componentDidMount() {
-    this.props.flyTo(
-      new Viewport(
-        this.props.latitude,
-        this.props.longitude,
-        this.props.zoom,
-        this.props.bearing,
-        this.props.pitch
+  componentWillMount() {
+    this.props.addToVisibleLocationsStack(
+      new VisibleLocation(
+        CHAPTER_LOCATION_ID,
+        new Viewport(
+          this.props.latitude,
+          this.props.longitude,
+          this.props.zoom,
+          this.props.bearing,
+          this.props.pitch
+        )
       )
     );
+  }
+
+  componentWillUnmount() {
+    this.props.removeFromVisibleLocationsStack(CHAPTER_LOCATION_ID);
   }
 
   render() {
@@ -32,7 +45,11 @@ class Chapter extends Component {
         {this.props.regions.map((region, regionIndex) => (
           <Region title={region.title} key={regionIndex}>
             {region.locations.map((location, locationIndex) => (
-              <LocationWithVisibility key={locationIndex} {...location} />
+              <LocationWithVisibility
+                key={locationIndex}
+                regionTitle={region.title}
+                {...location}
+              />
             ))}
           </Region>
         ))}
@@ -43,5 +60,5 @@ class Chapter extends Component {
 
 export default connect(
   null,
-  { flyTo }
+  { addToVisibleLocationsStack, removeFromVisibleLocationsStack }
 )(Chapter);

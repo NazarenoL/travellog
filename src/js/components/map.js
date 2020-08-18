@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { easeCubic } from "d3-ease";
+import { isEqual, last } from "lodash";
 
 import MapGL, { FlyToInterpolator, Layer, Source } from "react-map-gl";
 
@@ -31,6 +32,18 @@ class Map extends Component {
     }));
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (
+      !isEqual(
+        prevProps.visibleLocationsStack,
+        this.props.visibleLocationsStack
+      )
+    ) {
+      let nextViewport = last(this.props.visibleLocationsStack).viewport;
+      this.props.flyTo(nextViewport);
+    }
+  }
+
   render() {
     return (
       <MapGL
@@ -58,6 +71,7 @@ class Map extends Component {
 
 const mapStateToProps = state => ({
   viewport: state.viewport,
+  visibleLocationsStack: state.visibleLocationsStack,
   datalayer: state.datalayer
 });
 
