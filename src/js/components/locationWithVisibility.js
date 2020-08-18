@@ -5,7 +5,11 @@ import VisibilitySensor from "react-visibility-sensor";
 import Location from "./location";
 import { Viewport } from "./map";
 
-import { flyTo } from "../actions";
+import {
+  addToVisibleLocationsStack,
+  removeFromVisibleLocationsStack,
+  VisibleLocation
+} from "../actions";
 
 class LocationWithVisibility extends Component {
   state = { isVisible: false };
@@ -15,25 +19,32 @@ class LocationWithVisibility extends Component {
       isVisible: isVisible
     }));
 
+    let visibleLocation = new VisibleLocation(
+      this.props.regionTitle + "-" + this.props.title,
+      new Viewport(
+        this.props.latitude,
+        this.props.longitude,
+        this.props.zoom,
+        this.props.bearing,
+        this.props.pitch
+      )
+    );
+
     if (isVisible) {
-      this.props.flyTo(
-        new Viewport(
-          this.props.latitude,
-          this.props.longitude,
-          this.props.zoom,
-          this.props.bearing,
-          this.props.pitch
-        )
-      );
+      this.props.addToVisibleLocationsStack(visibleLocation);
+    } else {
+      this.props.removeFromVisibleLocationsStack(visibleLocation.id);
     }
   };
+
+  componentWillUnmount;
 
   render() {
     return (
       <VisibilitySensor
         onChange={this.visibilityChange}
         partialVisibility={true}
-        minTopValue={100}
+        minTopValue={150}
       >
         <Location isVisible={this.state.isVisible} {...this.props} />
       </VisibilitySensor>
@@ -43,5 +54,5 @@ class LocationWithVisibility extends Component {
 
 export default connect(
   null,
-  { flyTo }
+  { addToVisibleLocationsStack, removeFromVisibleLocationsStack }
 )(LocationWithVisibility);

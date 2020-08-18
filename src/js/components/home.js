@@ -6,15 +6,28 @@ import Intro from "./intro";
 import { Viewport } from "./map";
 
 import { settings } from "../content";
-import { flyTo, setDataLayer } from "../actions";
+import {
+  addToVisibleLocationsStack,
+  removeFromVisibleLocationsStack,
+  setDataLayer,
+  VisibleLocation
+} from "../actions";
+
+const HOME_LOCATION_ID = "home";
 
 class Home extends Component {
   componentDidMount() {
-    this.props.flyTo(new Viewport(0, 0, 1, 0, 0));
+    this.props.addToVisibleLocationsStack(
+      new VisibleLocation(HOME_LOCATION_ID, new Viewport(0, 0, 1, 0, 0))
+    );
     this.props.setDataLayer({
       type: "fill",
       paint: { "fill-color": "#e58f52", "fill-opacity": 0.5 }
     });
+  }
+
+  componentWillUnmount() {
+    this.props.removeFromVisibleLocationsStack(HOME_LOCATION_ID);
   }
 
   render() {
@@ -39,5 +52,5 @@ class Home extends Component {
 
 export default connect(
   null,
-  { setDataLayer, flyTo }
+  { setDataLayer, addToVisibleLocationsStack, removeFromVisibleLocationsStack }
 )(Home);
