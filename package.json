@@ -5,6 +5,7 @@
   "scripts": {
     "start:dev": "webpack-dev-server --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "optimize-images": "optisize --src=\"dist/images/uploads\" --height=1080",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "@geo-maps/countries-land-10km": "^0.6.0",
+    "@three11/optisize": "^1.1.0",
     "css-loader": "^3.4.2",
     "d3-ease": "^1.0.6",
     "dotenv-webpack": "^1.7.0",

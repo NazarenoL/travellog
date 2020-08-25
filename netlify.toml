@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "npm run build"
+  command = "npm run optimize-images && npm run build"
 
 [context.deploy-preview.environment]
   PAGE_TITLE = "[PREVIEW] Travel Log"
