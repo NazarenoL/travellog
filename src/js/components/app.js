@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import ReactGA from "react-ga";
+import SimpleReactLightbox from "simple-react-lightbox";
 import { Provider } from "react-redux";
 import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
@@ -60,7 +61,9 @@ const wrapper = document.getElementById("container");
 wrapper
   ? ReactDOM.render(
       <Provider store={store}>
-        <App />
+        <SimpleReactLightbox>
+          <App />
+        </SimpleReactLightbox>
       </Provider>,
       wrapper
     )

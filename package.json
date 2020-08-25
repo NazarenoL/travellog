@@ -57,6 +57,7 @@
     "redux": "^4.0.5",
     "reset-css": "^5.0.1",
     "sass-loader": "^8.0.2",
+    "simple-react-lightbox": "^3.3.4-1",
     "slugify": "^1.4.0",
     "style-loader": "^1.1.3"
   }
