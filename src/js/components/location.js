@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import marked from "marked";
+import SimpleReactLightbox from "simple-react-lightbox";
 import { SRLWrapper } from "simple-react-lightbox";
 
 import Image1x1 from "../../images/image-1x1.jpg";
@@ -34,33 +35,35 @@ class Location extends Component {
         />
         <span className="date">{this.props.date}</span>
 
-        <SRLWrapper options={SRLOptions}>
-          <div class="grid">
-            {!this.props.photos ||
-              this.props.photos.map((photo, photoIndex) => {
-                if (!photo.image || !photo.size) {
-                  return;
-                }
+        <SimpleReactLightbox>
+          <SRLWrapper options={SRLOptions}>
+            <div class="grid">
+              {!this.props.photos ||
+                this.props.photos.map((photo, photoIndex) => {
+                  if (!photo.image || !photo.size) {
+                    return;
+                  }
 
-                return (
-                  <a
-                    className={`box box--${photo.size}`}
-                    key={photoIndex}
-                    href={photo.image}
-                    data-attribute="SRL"
-                  >
-                    <img src={photo.image} style={{ display: "none" }} />
-                    <div
-                      className="image-wrapper"
-                      style={{
-                        backgroundImage: `url(${photo.image})`
-                      }}
-                    ></div>
-                  </a>
-                );
-              })}
-          </div>
-        </SRLWrapper>
+                  return (
+                    <a
+                      className={`box box--${photo.size}`}
+                      key={photoIndex}
+                      href={photo.image}
+                      data-attribute="SRL"
+                    >
+                      <img src={photo.image} style={{ display: "none" }} />
+                      <div
+                        className="image-wrapper"
+                        style={{
+                          backgroundImage: `url(${photo.image})`
+                        }}
+                      ></div>
+                    </a>
+                  );
+                })}
+            </div>
+          </SRLWrapper>
+        </SimpleReactLightbox>
       </section>
     );
   }
