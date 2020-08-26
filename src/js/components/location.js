@@ -23,6 +23,34 @@ class Location extends Component {
       thumbnails: { showThumbnails: false }
     };
 
+    const photoGrid = (
+      <div class="grid">
+        {!this.props.photos ||
+          this.props.photos.map((photo, photoIndex) => {
+            if (!photo.image || !photo.size) {
+              return;
+            }
+
+            return (
+              <a
+                className={`box box--${photo.size}`}
+                key={photoIndex}
+                href={photo.image}
+                data-attribute="SRL"
+              >
+                <img src={photo.image} style={{ display: "none" }} />
+                <div
+                  className="image-wrapper"
+                  style={{
+                    backgroundImage: `url(${photo.image})`
+                  }}
+                ></div>
+              </a>
+            );
+          })}
+      </div>
+    );
+
     return (
       <section
         className={this.props.isVisible ? "location active" : "location"}
@@ -35,35 +63,13 @@ class Location extends Component {
         />
         <span className="date">{this.props.date}</span>
 
-        <SimpleReactLightbox>
-          <SRLWrapper options={SRLOptions}>
-            <div class="grid">
-              {!this.props.photos ||
-                this.props.photos.map((photo, photoIndex) => {
-                  if (!photo.image || !photo.size) {
-                    return;
-                  }
-
-                  return (
-                    <a
-                      className={`box box--${photo.size}`}
-                      key={photoIndex}
-                      href={photo.image}
-                      data-attribute="SRL"
-                    >
-                      <img src={photo.image} style={{ display: "none" }} />
-                      <div
-                        className="image-wrapper"
-                        style={{
-                          backgroundImage: `url(${photo.image})`
-                        }}
-                      ></div>
-                    </a>
-                  );
-                })}
-            </div>
-          </SRLWrapper>
-        </SimpleReactLightbox>
+        {this.props.addLightboxWrapper ? (
+          <SimpleReactLightbox>
+            <SRLWrapper options={SRLOptions}>{photoGrid}</SRLWrapper>
+          </SimpleReactLightbox>
+        ) : (
+          photoGrid
+        )}
       </section>
     );
   }

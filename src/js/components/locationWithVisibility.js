@@ -46,7 +46,11 @@ class LocationWithVisibility extends Component {
         partialVisibility={true}
         minTopValue={150}
       >
-        <Location isVisible={this.state.isVisible} {...this.props} />
+        <Location
+          isVisible={this.state.isVisible}
+          addLightboxWrapper={true}
+          {...this.props}
+        />
       </VisibilitySensor>
     );
   }
