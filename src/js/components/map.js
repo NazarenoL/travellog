@@ -49,7 +49,7 @@ class Map extends Component {
       <MapGL
         mapboxApiAccessToken={MAPBOX_TOKEN}
         onViewportChange={this._onViewportChange}
-        mapStyle="mapbox://styles/nazarenol/ck6x4dded0uxz1ipnz0r9awh1?optimize=true"
+        mapStyle="mapbox://styles/mapbox/streets-v11?optimize=true"
         transitionDuration={1500}
         transitionInterpolator={new FlyToInterpolator()}
         transitionEasing={easeCubic}
