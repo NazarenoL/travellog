@@ -30,7 +30,7 @@
     &--1x2 {
       grid-row-end: span 2;
       .image-wrapper {
-        padding-bottom: 150%;
+        padding-bottom: calc(200% + 4px);
       }
     }
     &--2x1 {
