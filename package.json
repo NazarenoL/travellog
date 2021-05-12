@@ -58,7 +58,7 @@
     "reset-css": "^5.0.1",
     "sass-loader": "^8.0.2",
     "simple-react-lightbox": "^3.3.4-1",
-    "slugify": "^1.4.0",
+    "slugify": "^1.5.3",
     "style-loader": "^2.0.0"
   }
 }
