@@ -37,7 +37,7 @@
   "dependencies": {
     "@geo-maps/countries-land-10km": "^0.6.0",
     "@three11/optisize": "^1.1.0",
-    "css-loader": "^3.4.2",
+    "css-loader": "^5.2.5",
     "d3-ease": "^1.0.6",
     "dotenv-webpack": "^7.0.2",
     "frontmatter-markdown-loader": "^3.3.0",
